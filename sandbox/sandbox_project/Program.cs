@@ -9,5 +9,10 @@ public class Program
         // one of your projects.
 
         Console.WriteLine("Hello Sandbox World!");
+
+        Console.Write("What's your favorite food?");
+        string food = Console.ReadLine();
+
+        Console.WriteLine($"Oh wow! you really like {food} I see.");
     }
 }

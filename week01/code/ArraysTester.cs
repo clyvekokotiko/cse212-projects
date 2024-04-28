@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 public static class ArraysTester {
     /// <summary>
     /// Entry point for the tests
@@ -39,7 +41,21 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return new double[0]; // replace this return statement with your own
+        // **My comments start here**
+        
+
+         // Create an empty list to store the multiples
+        //List<double> multiplesList = new List<double>();
+        double[] multiplesList = new double[length];
+        // Loop for the specified number of multiples
+        for (int i = 0; i < length; i++){
+            // Calculate the current multiple
+            double currentNumber = number * (i + 1);
+            // Add the multiple to the list
+            multiplesList[i] = currentNumber;
+        }
+        // Return the list containing the multiples
+        return multiplesList; // replace this return statement with your own
     }
     
     /// <summary>
@@ -56,6 +72,20 @@ public static class ArraysTester {
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        // int LenData = data.Count;
+
+        
+
+        // Calculate the actual amount to rotate (avoiding out-of-bounds)
+        int actualAmount = amount % data.Count;
+
+        // Get the elements to be moved to the end
+        List<int> sublist = data.GetRange(data.Count - actualAmount, actualAmount);
+
+        // Combine the remaining elements with the sublist for rotation
+        List<int> finalList  =  data.Skip(actualAmount).Concat(sublist).ToList();
+        return finalList;
+
 
     }
 }
